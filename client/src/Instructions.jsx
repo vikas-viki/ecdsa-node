@@ -29,7 +29,9 @@ const Instructions = () => {
               <b>
                 <i> Sign a message </i>
               </b>{" "}
-              box.
+              box & click <b>
+                <i> CREATE SIGNATURE </i>
+              </b>.
             </td>
           </tr>
           <tr>
@@ -57,7 +59,7 @@ const Instructions = () => {
             <td>
               Click on{" "}
               <b>
-                <i> Transfer </i>
+                <i> TRANSFER </i>
               </b>
               , amount will be automatically transferred.
             </td>
