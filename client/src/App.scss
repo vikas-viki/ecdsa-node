@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Poppins:ital,wght@0,300;0,600;1,400&display=swap");
+
 body {
   font-family: "Muli", sans-serif;
   font-weight: 300;
@@ -9,7 +11,7 @@ label {
   display: flex;
   flex-direction: column;
   letter-spacing: 0.05rem;
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: 400;
   color: #222;
 }
@@ -19,6 +21,23 @@ label {
   max-width: 1400px;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.sign {
+  word-wrap: break-word;
+  width: 100%;
+  line-height: 25px;
+}
+
+.instructions {
+  table, .note {
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.3px;
+    word-spacing: 3px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+  }
 }
 
 .container {
@@ -37,6 +56,9 @@ label {
   .button {
     margin-top: 10px;
   }
+  h1 {
+    font-family: "Poppins", sans-serif;
+  }
 }
 
 input {
@@ -51,13 +73,15 @@ input {
 .button {
   background-color: #319795;
   border-radius: 0.125rem;
+  outline: none;
+  border: none;
   padding: 10px 20px;
   color: white;
   display: inline-flex;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 400;
-  font-size: .9em;
+  font-size: 0.9em;
   &:hover {
     cursor: pointer;
   }
@@ -71,7 +95,7 @@ input {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 400;
-    font-size: .9em;
+    font-size: 0.9em;
     display: inline-flex;
     margin-top: 10px;
     padding: 0.75rem;
@@ -80,17 +104,18 @@ input {
   .address {
     letter-spacing: 1px;
     font-weight: 400;
-    font-size: .9em;
+    font-size: 0.9em;
     display: inline-flex;
     margin-top: 10px;
     padding: 0.75rem;
     background-color: #f4f6f8;
   }
 }
-.sign{
+.sign,
+.recoveryBit {
   letter-spacing: 1px;
   font-weight: 400;
-  font-size: .9em;
+  font-size: 0.9em;
   display: inline-flex;
   margin-top: 10px;
   padding: 0.75rem;
@@ -102,8 +127,63 @@ input {
   flex-direction: column;
 }
 
-.main{
+.main {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+// ----------------------------------------------------
+
+
+.instructions {
+  text-align: center;
+}
+.instructions {
+  h1{
+    margin-top: 0px;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 30px;
+}
+
+th {
+  background-color: #008080;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+
+b {
+  font-weight: bold;
+}
+
+i {
+  font-style: italic;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li:before {
+  content: "• ";
+  color: #008080;
+  font-weight: bold;
 }

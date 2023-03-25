@@ -1,6 +1,7 @@
 import Wallet from "./Wallet";
 import Transfer from "./Transfer";
 import "./App.scss";
+import Instructions from "./Instructions";
 import SignMessage from "./SignMessage";
 import { useState } from "react";
 
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <div className="main">
+      <Instructions />
       <div className="app">
         <Wallet
           balance={balance}

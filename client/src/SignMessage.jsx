@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import * as secp from "ethereum-cryptography/secp256k1";
-import {keccak256} from "ethereum-cryptography/keccak"
+import { keccak256 } from "ethereum-cryptography/keccak";
 import { toHex, utf8ToBytes } from "ethereum-cryptography/utils";
 
 const SignMessage = () => {
   const [privateKey, setPrivateKey] = useState("");
   const [message, setMessage] = useState("");
   const [signature, setSignnature] = useState("");
-  const [recoveryBIT, setRecoveryBIT] = useState("")
+  const [recoveryBIT, setRecoveryBIT] = useState("");
 
   const handlePrivateKeyChange = (e) => {
     setPrivateKey(e.target.value);
@@ -20,11 +20,19 @@ const SignMessage = () => {
   const createSignature = async (e) => {
     e.preventDefault();
     const messageHash = toHex(keccak256(utf8ToBytes(JSON.stringify(message))));
-    const [sign, recoveryBit] = await secp.sign(messageHash, privateKey, {recovered: true});
+    const [sign, recoveryBit] = await secp.sign(messageHash, privateKey, {
+      recovered: true,
+    });
     setSignnature(toHex(sign));
     setRecoveryBIT(recoveryBit);
   };
-  
+
+  function copyToClipBoard(selector) {
+    const element = document.querySelector(selector);
+    const text = element.textContent;
+    navigator.clipboard.writeText(text);
+  }
+
   return (
     <div className="container signature">
       <form onSubmit={createSignature}>
@@ -36,7 +44,7 @@ const SignMessage = () => {
             value={privateKey}
             required
             onChange={handlePrivateKeyChange}
-          ></input>
+          />
         </label>
         <label>
           Write a message
@@ -45,17 +53,33 @@ const SignMessage = () => {
             value={message}
             required
             onChange={handleMessageChange}
-          ></input>
+          />
         </label>
-        <button type="submit" className="button">Create Signature</button>
+        <button type="submit" className="button">
+          Create Signature
+        </button>
       </form>
+
       <label className="sign">
         Your Signature:
-        <span >{signature}</span>
-      </label><br/>
-      <label className="sign">
+        <span
+          onClick={() => {
+            copyToClipBoard(".sign span");
+          }}
+        >
+          {signature}
+        </span>
+      </label>
+      <br />
+      <label className="recoveryBit">
         Recovery bit:
-        <span >{recoveryBIT}</span>
+        <span
+          onClick={() => {
+            copyToClipBoard(".recoveryBit span");
+          }}
+        >
+          {recoveryBIT}
+        </span>
       </label>
     </div>
   );

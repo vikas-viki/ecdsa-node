@@ -44,7 +44,7 @@ function Wallet({
 
   return (
     <div className="container wallet">
-      <h1>Signature</h1>
+      <h1>Check you balance</h1>
       <span>This is only to check the balance.</span>
       <label>
         Private key
